@@ -48,6 +48,67 @@
     51%, 100% { opacity: 0.3; }
   }
 
+  /* Меню вкладок */
+  .nav-tabs {
+    display: flex;
+    background: #0d0d0d;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .nav-tab {
+    flex: 1;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    cursor: pointer;
+    border-right: 1px solid #1a1a1a;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .nav-tab:last-child { border-right: none; }
+
+  .nav-tab:hover {
+    color: #ff4444;
+    background: #141414;
+  }
+
+  .nav-tab.active {
+    color: #ff4444;
+    background: #1a0000;
+    border-bottom: 2px solid #8b0000;
+  }
+
+  .nav-tab.discord {
+    color: #7289da;
+  }
+
+  .nav-tab.discord:hover,
+  .nav-tab.discord.active {
+    color: #a0b4ff;
+    background: #0f1428;
+    border-bottom-color: #7289da;
+  }
+
+  /* Контент вкладок */
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .header {
     padding: 40px 30px 30px;
     border-bottom: 1px solid #2a2a2a;
@@ -267,6 +328,140 @@
     display: block;
   }
 
+  /* Discord вкладка */
+  .discord-hero {
+    padding: 60px 30px;
+    text-align: center;
+    background: linear-gradient(180deg, #0f1428, #0a0a0a);
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .discord-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #5865F2, #7289da);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    box-shadow: 0 0 40px rgba(88, 101, 242, 0.6);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .discord-hero h2 {
+    font-size: 26px;
+    color: #a0b4ff;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .discord-hero .server-name {
+    font-size: 18px;
+    color: #7289da;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .discord-hero p {
+    color: #888;
+    font-size: 14px;
+    max-width: 500px;
+    margin: 0 auto 25px;
+    letter-spacing: 1px;
+  }
+
+  .discord-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+  }
+
+  .discord-stat {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    padding: 15px 25px;
+    border-radius: 8px;
+    min-width: 120px;
+  }
+
+  .discord-stat .num {
+    font-size: 24px;
+    color: #7289da;
+    font-weight: bold;
+    display: block;
+  }
+
+  .discord-stat .lbl {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .discord-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #5865F2, #7289da);
+    color: #fff;
+    padding: 18px 50px;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 0 30px rgba(88, 101, 242, 0.5);
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+
+  .discord-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 50px rgba(88, 101, 242, 0.8);
+    background: linear-gradient(135deg, #7289da, #5865F2);
+  }
+
+  .discord-info {
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .discord-info h3 {
+    font-size: 16px;
+    color: #8b0000;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+  }
+
+  .feature {
+    display: inline-block;
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    padding: 15px 25px;
+    margin: 8px;
+    font-size: 13px;
+    color: #ccc;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+
+  .feature:hover {
+    border-color: #7289da;
+    color: #a0b4ff;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.3);
+  }
+
   .footer {
     padding: 20px 30px;
     text-align: center;
@@ -292,6 +487,9 @@
     .info-row { flex-direction: column; gap: 4px; }
     .info-value { text-align: left; }
     .asset-line { flex-direction: column; gap: 2px; }
+    .nav-tab { font-size: 10px; padding: 12px 5px; }
+    .discord-btn { padding: 15px 30px; font-size: 14px; }
+    .discord-hero h2 { font-size: 20px; }
   }
 </style>
 </head>
@@ -305,83 +503,147 @@
     <span>ФАЙЛ № ТЦК-0001</span>
   </div>
 
-  <div class="header">
-    <div class="patch">
-      <img src="https://i.imgur.com/5hWF6zN.jpeg" alt="Шеврон ТЦК">
-    </div>
-    <div class="emblem">★ ★ ★ CLASSIFIED ★ ★ ★</div>
-    <h1>АГЕЕВ ДМИТРИЙ<br>КОНСТАНТИНОВИЧ</h1>
-    <div class="nickname">«САТАН» / «СНАЙПЕР»</div>
-    <div class="subtitle">ГЛАВА КАРТЕЛЯ «ТЦК»</div>
-    <div class="case-number">ЛИЧНОЕ ДЕЛО № ТЦК-0001</div>
+  <!-- МЕНЮ ВКЛАДОК -->
+  <div class="nav-tabs">
+    <a class="nav-tab active" onclick="showTab('dossier', this)">📁 ДОСЬЕ</a>
+    <a class="nav-tab discord" onclick="showTab('discord', this)">💬 НАШ РП СЕРВЕР</a>
   </div>
 
-  <div class="section">
-    <div class="section-title">Основная информация</div>
-    <div class="info-row"><span class="info-label">ФИО</span><span class="info-value">Агеев Дмитрий Константинович</span></div>
-    <div class="info-row"><span class="info-label">Прозвище</span><span class="info-value nickname">«Сатан» / «Снайпер»</span></div>
-    <div class="info-row"><span class="info-label">Статус</span><span class="info-value">Глава картеля «ТЦК»</span></div>
-    <div class="info-row"><span class="info-label">Гражданство</span><span class="info-value">РФ + 5 других стран</span></div>
-    <div class="info-row"><span class="info-label">Дата рождения</span><span class="info-value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
-    <div class="info-row"><span class="info-label">Место рождения</span><span class="info-value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
+  <!-- ВКЛАДКА 1: ДОСЬЕ -->
+  <div id="dossier" class="tab-content active">
+
+    <div class="header">
+      <div class="patch">
+        <img src="https://i.imgur.com/5hWF6zN.jpeg" alt="Шеврон ТЦК">
+      </div>
+      <div class="emblem">★ ★ ★ CLASSIFIED ★ ★ ★</div>
+      <h1>АГЕЕВ ДМИТРИЙ<br>КОНСТАНТИНОВИЧ</h1>
+      <div class="nickname">«САТАН» / «СНАЙПЕР»</div>
+      <div class="subtitle">ГЛАВА КАРТЕЛЯ «ТЦК»</div>
+      <div class="case-number">ЛИЧНОЕ ДЕЛО № ТЦК-0001</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Основная информация</div>
+      <div class="info-row"><span class="info-label">ФИО</span><span class="info-value">Агеев Дмитрий Константинович</span></div>
+      <div class="info-row"><span class="info-label">Прозвище</span><span class="info-value nickname">«Сатан» / «Снайпер»</span></div>
+      <div class="info-row"><span class="info-label">Статус</span><span class="info-value">Глава картеля «ТЦК»</span></div>
+      <div class="info-row"><span class="info-label">Гражданство</span><span class="info-value">РФ + 5 других стран</span></div>
+      <div class="info-row"><span class="info-label">Дата рождения</span><span class="info-value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
+      <div class="info-row"><span class="info-label">Место рождения</span><span class="info-value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Финансовые активы</div>
+
+      <div class="asset-card">
+        <div class="asset-title"><span class="icon">🚗</span> Автопарк</div>
+        <div class="asset-line"><span>Общая стоимость</span><span class="value money">500 000 000 ₽</span></div>
+        <div class="asset-line"><span>Количество</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+        <div class="asset-line"><span>Модели</span><span class="value">Bugatti, Rolls-Royce, Maybach, Ferrari, Lamborghini, Bentley</span></div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-title"><span class="icon">💊</span> Склады наркотиков</div>
+        <div class="asset-line"><span>Количество стран</span><span class="value">5</span></div>
+        <div class="asset-line"><span>Общая стоимость</span><span class="value money">6 000 000 000 €</span></div>
+        <div class="asset-line"><span>Локации</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+        <div class="asset-line"><span>Охрана</span><span class="value">Бывшие военные, ЧОП, картель «ТЦК»</span></div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-title"><span class="icon">🏠</span> Недвижимость в РФ</div>
+        <div class="asset-line"><span>Количество объектов</span><span class="value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
+        <div class="asset-line"><span>Общая стоимость</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+        <div class="asset-line"><span>Типы</span><span class="value">Особняки, пентхаусы, склады, заводы, ТЦ, земля</span></div>
+        <div class="asset-line"><span>Оформлено на</span><span class="value">Подставных лиц, офшоры</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Картель «ТЦК»</div>
+      <div class="info-row"><span class="info-label">Название</span><span class="info-value">Картель «ТЦК»</span></div>
+      <div class="info-row"><span class="info-label">Глава</span><span class="info-value">Агеев Д. К. («Сатан» / «Снайпер»)</span></div>
+      <div class="info-row"><span class="info-label">Численность</span><span class="info-value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+      <div class="info-row"><span class="info-label">Сфера влияния</span><span class="info-value">Наркотики, оружие, люди, недвижимость</span></div>
+      <div class="info-row"><span class="info-label">Страны</span><span class="info-value">5+</span></div>
+      <div class="info-row"><span class="info-label">Статус</span><span class="info-value" style="color:#4ade80;">● АКТИВЕН</span></div>
+    </div>
+
+    <div class="section">
+      <div class="warning">
+        <span class="blink">⚠</span> ВНИМАНИЕ <span class="blink">⚠</span><br><br>
+        Дмитрий «Сатан» Агеев Константинович — один из самых опасных
+        и влиятельных криминальных авторитетов современности.<br><br>
+        Прозвище «Снайпер» получено за безупречную точность в делах картеля.<br><br>
+        Картель «ТЦК» контролирует значительную часть теневого рынка в 5 странах.<br><br>
+        <span class="blink">В случае необходимости картель готов применить любые меры.</span>
+      </div>
+    </div>
+
+    <div class="signature">
+      <div class="patch-stamp">
+        <img src="https://i.imgur.com/5hWF6zN.jpeg" alt="Шеврон картеля ТЦК">
+      </div>
+      <div style="font-size:12px; color:#666; letter-spacing:2px; margin-top:15px;">
+        ДАТА СОСТАВЛЕНИЯ: 14.09.2026<br>
+        СОСТАВИЛ: [ДАННЫЕ УДАЛЕНЫ]
+      </div>
+    </div>
+
   </div>
 
-  <div class="section">
-    <div class="section-title">Финансовые активы</div>
+  <!-- ВКЛАДКА 2: DISCORD СЕРВЕР -->
+  <div id="discord" class="tab-content">
 
-    <div class="asset-card">
-      <div class="asset-title"><span class="icon">🚗</span> Автопарк</div>
-      <div class="asset-line"><span>Общая стоимость</span><span class="value money">500 000 000 ₽</span></div>
-      <div class="asset-line"><span>Количество</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
-      <div class="asset-line"><span>Модели</span><span class="value">Bugatti, Rolls-Royce, Maybach, Ferrari, Lamborghini, Bentley</span></div>
+    <div class="discord-hero">
+      <div class="discord-icon">💬</div>
+      <h2>ELITE ROLEPLAY</h2>
+      <div class="server-name">КОПИЯ ELITE RP</div>
+      <p>Наш РП-сервер в Discord. Заходи, вливайся в картель, играй с нами!</p>
+
+      <div class="discord-stats">
+        <div class="discord-stat">
+          <span class="num">24/7</span>
+          <span class="lbl">Онлайн</span>
+        </div>
+        <div class="discord-stat">
+          <span class="num">RP</span>
+          <span class="lbl">Режим</span>
+        </div>
+        <div class="discord-stat">
+          <span class="num">ТЦК</span>
+          <span class="lbl">Картель</span>
+        </div>
+      </div>
+
+      <a href="https://discord.gg/WXZz7r9JSu" target="_blank" class="discord-btn">
+        🚀 ЗАЙТИ НА СЕРВЕР
+      </a>
     </div>
 
-    <div class="asset-card">
-      <div class="asset-title"><span class="icon">💊</span> Склады наркотиков</div>
-      <div class="asset-line"><span>Количество стран</span><span class="value">5</span></div>
-      <div class="asset-line"><span>Общая стоимость</span><span class="value money">6 000 000 000 €</span></div>
-      <div class="asset-line"><span>Локации</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
-      <div class="asset-line"><span>Охрана</span><span class="value">Бывшие военные, ЧОП, картель «ТЦК»</span></div>
+    <div class="discord-info">
+      <h3>Что вас ждёт на сервере</h3>
+      <div class="feature">🎭 Ролевая игра</div>
+      <div class="feature">💰 Экономика</div>
+      <div class="feature">🚗 Автомобили</div>
+      <div class="feature">🏴‍☠️ Картель ТЦК</div>
+      <div class="feature">🎯 Квесты</div>
+      <div class="feature">👥 Дружное комьюнити</div>
+      <div class="feature">🎁 Ивенты</div>
+      <div class="feature">📢 Активные админы</div>
     </div>
 
-    <div class="asset-card">
-      <div class="asset-title"><span class="icon">🏠</span> Недвижимость в РФ</div>
-      <div class="asset-line"><span>Количество объектов</span><span class="value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
-      <div class="asset-line"><span>Общая стоимость</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
-      <div class="asset-line"><span>Типы</span><span class="value">Особняки, пентхаусы, склады, заводы, ТЦ, земля</span></div>
-      <div class="asset-line"><span>Оформлено на</span><span class="value">Подставных лиц, офшоры</span></div>
+    <div class="section" style="text-align: center;">
+      <div class="section-title">Ссылка на сервер</div>
+      <div style="font-size: 16px; color: #a0b4ff; letter-spacing: 2px; padding: 15px; background: #0f1428; border: 1px dashed #7289da; border-radius: 8px; word-break: break-all;">
+        https://discord.gg/WXZz7r9JSu
+      </div>
+      <p style="font-size: 12px; color: #666; margin-top: 15px; letter-spacing: 1px;">
+        Скопируй ссылку или нажми кнопку выше
+      </p>
     </div>
-  </div>
 
-  <div class="section">
-    <div class="section-title">Картель «ТЦК»</div>
-    <div class="info-row"><span class="info-label">Название</span><span class="info-value">Картель «ТЦК»</span></div>
-    <div class="info-row"><span class="info-label">Глава</span><span class="info-value">Агеев Д. К. («Сатан» / «Снайпер»)</span></div>
-    <div class="info-row"><span class="info-label">Численность</span><span class="info-value classified">[ЗАСЕКРЕЧЕНО]</span></div>
-    <div class="info-row"><span class="info-label">Сфера влияния</span><span class="info-value">Наркотики, оружие, люди, недвижимость</span></div>
-    <div class="info-row"><span class="info-label">Страны</span><span class="info-value">5+</span></div>
-    <div class="info-row"><span class="info-label">Статус</span><span class="info-value" style="color:#4ade80;">● АКТИВЕН</span></div>
-  </div>
-
-  <div class="section">
-    <div class="warning">
-      <span class="blink">⚠</span> ВНИМАНИЕ <span class="blink">⚠</span><br><br>
-      Дмитрий «Сатан» Агеев Константинович — один из самых опасных
-      и влиятельных криминальных авторитетов современности.<br><br>
-      Прозвище «Снайпер» получено за безупречную точность в делах картеля.<br><br>
-      Картель «ТЦК» контролирует значительную часть теневого рынка в 5 странах.<br><br>
-      <span class="blink">В случае необходимости картель готов применить любые меры.</span>
-    </div>
-  </div>
-
-  <div class="signature">
-    <div class="patch-stamp">
-      <img src="https://i.imgur.com/5hWF6zN.jpeg" alt="Шеврон картеля ТЦК">
-    </div>
-    <div style="font-size:12px; color:#666; letter-spacing:2px; margin-top:15px;">
-      ДАТА СОСТАВЛЕНИЯ: 14.09.2026<br>
-      СОСТАВИЛ: [ДАННЫЕ УДАЛЕНЫ]
-    </div>
   </div>
 
   <div class="footer">
@@ -390,6 +652,23 @@
   </div>
 
 </div>
+
+<script>
+  function showTab(tabId, element) {
+    // Скрываем все вкладки
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    // Убираем active со всех кнопок
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    // Показываем нужную вкладку
+    document.getElementById(tabId).classList.add('active');
+    // Подсвечиваем кнопку
+    element.classList.add('active');
+  }
+</script>
 
 </body>
 </html>
