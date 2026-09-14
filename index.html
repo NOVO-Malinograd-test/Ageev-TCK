@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДОСЬЕ — Агеев Д. К. | Картель «ТЦК»</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(180, 30, 30, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(180, 30, 30, 0.05) 0%, transparent 50%);
+    color: #c9c9c9;
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+    padding: 40px 20px;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 0 60px rgba(180, 30, 30, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .top-bar {
+    background: linear-gradient(90deg, #8b0000, #1a0000);
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #ff6b6b;
+    text-transform: uppercase;
+  }
+
+  .top-bar .blink { animation: blink 1.5s infinite; }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+  }
+
+  .header {
+    padding: 40px 30px 30px;
+    border-bottom: 1px solid #2a2a2a;
+    text-align: center;
+    background: linear-gradient(180deg, #0f0f0f, #111);
+    position: relative;
+  }
+
+  .header .patch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #8b0000;
+    box-shadow: 0 0 20px rgba(180, 30, 30, 0.4);
+    background: #000;
+  }
+
+  .header .patch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .emblem {
+    font-size: 14px;
+    color: #8b0000;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    color: #e0e0e0;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(180, 30, 30, 0.3);
+  }
+
+  .nickname {
+    font-size: 22px;
+    color: #ff4444;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    animation: pulse 2.5s infinite;
+  }
+
+  .header .subtitle {
+    font-size: 13px;
+    color: #8b0000;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .case-number {
+    display: inline-block;
+    background: #1a0000;
+    border: 1px solid #8b0000;
+    padding: 6px 20px;
+    font-size: 12px;
+    color: #ff4444;
+    letter-spacing: 2px;
+  }
+
+  .section {
+    padding: 30px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .section-title {
+    font-size: 14px;
+    color: #8b0000;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title::before,
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8b0000, transparent);
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 14px;
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-label { color: #666; letter-spacing: 1px; }
+
+  .info-value {
+    color: #e0e0e0;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .info-value.classified {
+    color: #ff4444;
+    font-style: italic;
+    animation: pulse 2s infinite;
+  }
+
+  .info-value.nickname {
+    color: #ff4444;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .asset-card {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #8b0000;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+  }
+
+  .asset-card:hover {
+    border-left-color: #ff4444;
+    background: #121212;
+    box-shadow: 0 0 20px rgba(180, 30, 30, 0.1);
+  }
+
+  .asset-title {
+    font-size: 14px;
+    color: #ff4444;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .asset-title .icon { font-size: 18px; }
+
+  .asset-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #999;
+  }
+
+  .asset-line .value { color: #e0e0e0; font-weight: bold; }
+  .asset-line .value.money { color: #4ade80; }
+
+  .warning {
+    background: linear-gradient(90deg, #1a0000, #111);
+    border: 1px solid #8b0000;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #ff8888;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .warning .blink { animation: blink 1.5s infinite; }
+
+  .signature {
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .patch-stamp {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #8b0000;
+    box-shadow: 
+      0 0 40px rgba(180, 30, 30, 0.5),
+      inset 0 0 20px rgba(0, 0, 0, 0.8);
+    transform: rotate(-8deg);
+    margin: 20px auto;
+    background: #000;
+    position: relative;
+    transition: transform 0.4s;
+  }
+
+  .patch-stamp:hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+
+  .patch-stamp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .footer {
+    padding: 20px 30px;
+    text-align: center;
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 2px;
+    background: #0a0a0a;
+  }
+
+  .footer .motto {
+    color: #8b0000;
+    font-size: 13px;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 20px 10px; }
+    .header h1 { font-size: 20px; letter-spacing: 2px; }
+    .nickname { font-size: 16px; letter-spacing: 4px; }
+    .header .patch { width: 60px; height: 60px; top: 10px; right: 10px; }
+    .section { padding: 20px 15px; }
+    .info-row { flex-direction: column; gap: 4px; }
+    .info-value { text-align: left; }
+    .asset-line { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="top-bar">
+    <span>УРОВЕНЬ ДОСТУПА: АЛЬФА</span>
+    <span class="blink">● СЕКРЕТНО</span>
+    <span>ФАЙЛ № ТЦК-0001</span>
+  </div>
+
+  <div class="header">
+    <div class="patch">
+      <img src="https://i.imgur.com/5hWF6zN.jpeg" alt="Шеврон ТЦК">
+    </div>
+    <div class="emblem">★ ★ ★ CLASSIFIED ★ ★ ★</div>
+    <h1>АГЕЕВ ДМИТРИЙ<br>КОНСТАНТИНОВИЧ</h1>
+    <div class="nickname">«САТАН» / «СНАЙПЕР»</div>
+    <div class="subtitle">ГЛАВА КАРТЕЛЯ «ТЦК»</div>
+    <div class="case-number">ЛИЧНОЕ ДЕЛО № ТЦК-0001</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Основная информация</div>
+    <div class="info-row"><span class="info-label">ФИО</span><span class="info-value">Агеев Дмитрий Константинович</span></div>
+    <div class="info-row"><span class="info-label">Прозвище</span><span class="info-value nickname">«Сатан» / «Снайпер»</span></div>
+    <div class="info-row"><span class="info-label">Статус</span><span class="info-value">Глава картеля «ТЦК»</span></div>
+    <div class="info-row"><span class="info-label">Гражданство</span><span class="info-value">РФ + 5 других стран</span></div>
+    <div class="info-row"><span class="info-label">Дата рождения</span><span class="info-value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
+    <div class="info-row"><span class="info-label">Место рождения</span><span class="info-value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Финансовые активы</div>
+
+    <div class="asset-card">
+      <div class="asset-title"><span class="icon">🚗</span> Автопарк</div>
+      <div class="asset-line"><span>Общая стоимость</span><span class="value money">500 000 000 ₽</span></div>
+      <div class="asset-line"><span>Количество</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+      <div class="asset-line"><span>Модели</span><span class="value">Bugatti, Rolls-Royce, Maybach, Ferrari, Lamborghini, Bentley</span></div>
+    </div>
+
+    <div class="asset-card">
+      <div class="asset-title"><span class="icon">💊</span> Склады наркотиков</div>
+      <div class="asset-line"><span>Количество стран</span><span class="value">5</span></div>
+      <div class="asset-line"><span>Общая стоимость</span><span class="value money">6 000 000 000 €</span></div>
+      <div class="asset-line"><span>Локации</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+      <div class="asset-line"><span>Охрана</span><span class="value">Бывшие военные, ЧОП, картель «ТЦК»</span></div>
+    </div>
+
+    <div class="asset-card">
+      <div class="asset-title"><span class="icon">🏠</span> Недвижимость в РФ</div>
+      <div class="asset-line"><span>Количество объектов</span><span class="value classified">[ДАННЫЕ УДАЛЕНЫ]</span></div>
+      <div class="asset-line"><span>Общая стоимость</span><span class="value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+      <div class="asset-line"><span>Типы</span><span class="value">Особняки, пентхаусы, склады, заводы, ТЦ, земля</span></div>
+      <div class="asset-line"><span>Оформлено на</span><span class="value">Подставных лиц, офшоры</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Картель «ТЦК»</div>
+    <div class="info-row"><span class="info-label">Название</span><span class="info-value">Картель «ТЦК»</span></div>
+    <div class="info-row"><span class="info-label">Глава</span><span class="info-value">Агеев Д. К. («Сатан» / «Снайпер»)</span></div>
+    <div class="info-row"><span class="info-label">Численность</span><span class="info-value classified">[ЗАСЕКРЕЧЕНО]</span></div>
+    <div class="info-row"><span class="info-label">Сфера влияния</span><span class="info-value">Наркотики, оружие, люди, недвижимость</span></div>
+    <div class="info-row"><span class="info-label">Страны</span><span class="info-value">5+</span></div>
+    <div class="info-row"><span class="info-label">Статус</span><span class="info-value" style="color:#4ade80;">● АКТИВЕН</span></div>
+  </div>
+
+  <div class="section">
+    <div class="warning">
+      <span class="blink">⚠</span> ВНИМАНИЕ <span class="blink">⚠</span><br><br>
+      Дмитрий «Сатан» Агеев Константинович — один из самых опасных
+      и влиятельных криминальных авторитетов современности.<br><br>
+      Прозвище «Снайпер» получено за безупречную точность в делах картеля.<br><br>
+      Картель «ТЦК» контролирует значительную часть теневого рынка в 5 странах.<br><br>
+      <span class="blink">В случае необходимости картель готов применить любые меры.</span>
+    </div>
+  </div>
+
+  <div class="signature">
+    <div class="patch-stamp">
+      <img src="https://i.imgur.com/5hWF6zN.jpeg" alt="Шеврон картеля ТЦК">
+    </div>
+    <div style="font-size:12px; color:#666; letter-spacing:2px; margin-top:15px;">
+      ДАТА СОСТАВЛЕНИЯ: 14.09.2026<br>
+      СОСТАВИЛ: [ДАННЫЕ УДАЛЕНЫ]
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="motto">ДА ЗДРАВСТВУЕТ КАРТЕЛЬ! 🥂 ДА ЗДРАВСТВУЕТ САТАН! 🔥</div>
+    <div>© 2026 ТЦК — ВСЕ ПРАВА ЗАЩИЩЕНЫ</div>
+  </div>
+
+</div>
+
+</body>
+</html>
