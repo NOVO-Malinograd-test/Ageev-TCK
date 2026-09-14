@@ -669,6 +669,70 @@
     element.classList.add('active');
   }
 </script>
+<!-- МУЗЫКАЛЬНЫЙ ВИДЖЕТ -->
+<div class="music-widget">
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Твой браузер не поддерживает аудио.
+  </audio>
+  <button class="music-btn" onclick="toggleMusic()" id="musicBtn" title="Включить музыку">
+    🔇
+  </button>
+</div>
 
+<style>
+.music-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.music-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b0000, #ff4444);
+  color: #fff;
+  border: 2px solid #ff6b6b;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(180, 30, 30, 0.6);
+  transition: all 0.3s;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255, 68, 68, 0.9);
+}
+
+.music-btn.playing {
+  animation: pulse-music 1.5s infinite;
+}
+
+@keyframes pulse-music {
+  0%, 100% { box-shadow: 0 0 20px rgba(180, 30, 30, 0.6); }
+  50% { box-shadow: 0 0 40px rgba(255, 68, 68, 1); }
+}
+</style>
+
+<script>
+function toggleMusic() {
+  const music = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicBtn');
+  
+  if (music.paused) {
+    music.play().catch(e => console.log('Ошибка воспроизведения:', e));
+    btn.textContent = '🔊';
+    btn.classList.add('playing');
+    btn.title = 'Выключить музыку';
+  } else {
+    music.pause();
+    btn.textContent = '🔇';
+    btn.classList.remove('playing');
+    btn.title = 'Включить музыку';
+  }
+}
+</script>
 </body>
 </html>
